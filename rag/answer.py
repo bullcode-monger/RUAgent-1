@@ -1,9 +1,10 @@
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
+from api.rag_service import retrieve_documents 
 import ollama
 
 embedding_model = HuggingFaceEmbeddings(
-    model_name = "sentence-transformers/all-MiniLm-L6-v2"
+    model_name = "sentence-transformers/all-MiniLM-L6-v2"
 )
 
 db = Chroma(
@@ -14,7 +15,7 @@ db = Chroma(
 
 def ask_question(question):
 
-    docs = db.similarity_search(question, k=5)
+    docs = retrieve_documents(question)
 
     context = "\n\n".join(
         [doc.page_content for doc in docs]

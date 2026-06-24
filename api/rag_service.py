@@ -13,14 +13,14 @@ db = Chroma(
 )
 
 # Retrieve relevant documents based on the question
-def retrieve_documents(question: str, k: int = 3):
+def retrieve_documents(question_vector: str, k: int = 5):
     """"
     Search the vector database and return
     the most relevant chunks
     """
 
     results = db.similarity_search(
-        question,
+        question_vector,
         k = k
     )
 
