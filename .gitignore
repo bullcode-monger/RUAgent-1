@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+
+# Chroma DB
+vectorstore/
+
+# Downloaded documents
+documents/raw/
+documents/processed/
+
+# VS Code
+.vscode/
+
+# Environment variables
+.env
+
+# HuggingFace cache
+.cache/
+
+# Logs
+*.log
